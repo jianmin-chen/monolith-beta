@@ -1,0 +1,39 @@
+.board {
+  position: relative;
+  display: flex;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  transition: all 1s;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  button {
+    font-size: 1.2rem;
+    background-color: white;
+    border: 1px solid var(--slate-1);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+  }
+}

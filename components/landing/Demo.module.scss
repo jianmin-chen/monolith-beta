@@ -1,0 +1,87 @@
+.dashboard {
+  min-width: 90vw;
+  min-height: 70vh;
+  border: 1px solid var(--slate-2);
+  border-bottom: 0;
+  display: flex;
+  font-size: 0.995rem;
+  background-color: white;
+  max-height: 75vh;
+  margin-left: 20rem;
+  z-index: 0;
+
+  > section {
+    padding: 0 !important;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    font: inherit;
+  }
+
+  .datasets {
+    border-right: 1px solid var(--slate-1);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    button {
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      width: 100%;
+      text-align: left;
+    }
+
+    button.selected {
+      background-color: var(--slate-1);
+    }
+  }
+
+  .dropdownHeader {
+    display: flex;
+    align-items: center;
+    padding: 0 0.7rem;
+    margin-top: 0.5rem;
+    gap: 2px;
+
+    button {
+      padding-left: 0;
+    }
+  }
+
+  .editor {
+    border-right: 1px solid var(--slate-1);
+    flex: 2;
+  }
+
+  .viz {
+    border-top-right-radius: 15pxx;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+
+    .options {
+      border-bottom: 1px solid var(--slate-1);
+      padding: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+
+      button {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      span {
+        font-weight: 600;
+      }
+    }
+
+    .graph {
+      flex: 100%;
+    }
+  }
+}

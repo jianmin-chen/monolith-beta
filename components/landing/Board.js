@@ -131,9 +131,6 @@ class Viewer {
       this.renderer.domElement
     )
     this.controls.screenSpacePanning = true
-    this.controls.addEventListener('change', event => {
-      // console.log(this.activeCamera)
-    })
 
     this.el.appendChild(this.renderer.domElement)
 
@@ -144,6 +141,10 @@ class Viewer {
     this.morphFolder = null
     this.morphCtrls = []
     this.skeletonHelpers = []
+
+    this.controls.addEventListener('change', event => {
+      console.log(this.activeCamera)
+    })
 
     this.animate = this.animate.bind(this)
     requestAnimationFrame(this.animate)
@@ -274,6 +275,7 @@ class Viewer {
     if (name === this.DEFAULT_CAMERA) {
       // this.controls.enabled = false
       this.controls.enabled = true
+      this.controls.zoom = false
       this.activeCamera = this.defaultCamera
     } else {
       this.controls.enabled = false
@@ -388,7 +390,6 @@ class Viewer {
 
 export default function Board() {
   const container = useRef(null)
-  const viewerRef = useRef(null)
 
   useEffect(() => {
     const el = container.current
@@ -400,14 +401,9 @@ export default function Board() {
     viewer
       .load('/landing/board.glb')
       .catch(e => console.log(e))
-      .then(viewer => {
-        viewerRef.current = viewer
-        viewerRef.current.controls.enabled = false
-      })
+      .then(viewer => {})
 
     return () => {
-      viewerRef.current.clear()
-      cancelAnimationFrame(viewerRef.animateId)
       const el = container.current
       while (el.hasChildNodes()) el.removeChild(el.lastChild)
     }
@@ -416,11 +412,6 @@ export default function Board() {
   return (
     <div className={styles.board}>
       <div className={styles.container} ref={container}></div>
-      {/* {viewerRef.current?.controls?.enabled === false && (
-        <div className={styles.button}>
-          <button>Take a look</button>
-        </div>
-      )} */}
     </div>
   )
 }

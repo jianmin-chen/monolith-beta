@@ -1,3 +1,7 @@
+$sm: 575.98px;
+$md: 767.98px;
+$lg: 991.98px;
+
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
 
 @font-face {
@@ -46,13 +50,19 @@
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--sans-serif);
   margin: 0;
   overflow-x: clip;
   padding: 0;
+  scroll-behavior: smooth;
+}
+
+button {
+  color: inherit;
 }
 
 a {
@@ -75,13 +85,21 @@ nav {
   justify-content: space-between;
   align-items: center;
 
-    > div {
-
-  p {
-    margin: 0.25em 0;
-    text-align: right;
+  @media screen and (max-width: $sm) {
+    padding-inline: 1rem;
+    padding-top: 1rem;
   }
-}
+
+  > div {
+    p {
+      margin: 0.25em 0;
+      text-align: right;
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 header {
@@ -89,22 +107,37 @@ header {
   text-align: center;
   padding: 4rem;
 
+  @media screen and (max-width: $sm) {
+    font-size: 1.6rem;
+    padding: 2rem;
+  }
+
   .preorder {
     margin-top: 1rem;
     cursor: pointer;
     transition: all 0.1s;
     width: fit-content;
 
+    a {
+      text-decoration: none;
+    }
+
     &:hover {
       opacity: 0.9;
     }
   }
 
-  h3, h2, h1 {
+  h3,
+  h2,
+  h1 {
     font-weight: 100;
     margin: 0;
     max-width: 50vw;
     margin: auto;
+
+    @media screen and (max-width: $sm) {
+      max-width: 90vw;
+    }
   }
 
   h1 {
@@ -118,9 +151,13 @@ header {
   }
 
   img {
-    max-width: 60vw;
+    max-width: 80vw;
     // margin-top: -2rem;
     margin-top: 1rem;
+
+    @media screen and (min-width: $sm) {
+      max-width: 60vw;
+    }
   }
 }
 
@@ -158,9 +195,15 @@ header {
 
   img {
     max-width: 50vw;
+    display: block;
+
+    @media screen and (max-width: $sm) {
+      max-width: 80vw;
+    }
   }
 
-  h1, h2 {
+  h1,
+  h2 {
     font-weight: 100;
   }
 
@@ -198,9 +241,12 @@ header {
 }
 
 .features {
-  display: flex;
   justify-content: space-between;
-  gap: 2rem;
+
+  @media screen and (min-width: $sm) {
+    display: flex;
+    gap: 2rem;
+  }
 
   > div {
     flex: 1;
@@ -222,21 +268,30 @@ header {
   padding-bottom: 0;
   position: relative;
 
-  h1 {
-    max-width: 50vw;
+  @media screen and (min-width: $sm) {
+    h1 {
+      max-width: 50vw;
+    }
   }
 
   > div {
-    display: flex;
+    @media screen and (min-width: $md) {
+      display: flex;
+    }
   }
 }
 
 #about {
-    border-left: 1px solid var(--slate-4);
+  border-left: 1px solid var(--slate-4);
   border-right: 1px solid var(--slate-4);
   // padding-bottom: 1.5rem;
   max-width: 60vw;
   margin: auto;
+
+  @media screen and (max-width: $md) {
+    max-width: 90vw !important;
+    font-size: 1.2rem;
+  }
 
   h1 {
     // font-family: var(--heading-font);
@@ -247,12 +302,19 @@ header {
   .signatures {
     display: flex;
     flex-wrap: wrap;
-    max-width: 50vw;
     margin: auto;
     gap: 7px;
 
+    @media screen and (min-width: $md) {
+      max-width: 50vw;
+    }
+
     img {
       max-width: 300px;
+
+      @media screen and (max-width: $md) {
+        max-width: 250px;
+      }
     }
   }
 }
@@ -265,33 +327,37 @@ header {
   z-index: 999;
 
   > div {
-    max-width: 60vw; 
+    max-width: 60vw;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+
+    @media screen and (max-width: $md) {
+      max-width: 90vw;
+    }
   }
 
   .left {
-  border-left: 1px solid var(--slate-4);
-  width: 1px;
-  height: 4rem;
+    border-left: 1px solid var(--slate-4);
+    width: 1px;
+    height: 4rem;
   }
 
   .right {
-  border-right: 1px solid var(--slate-4);
-  width: 1px;
-  height: 4rem;
-}
+    border-right: 1px solid var(--slate-4);
+    width: 1px;
+    height: 4rem;
+  }
 }
 
 footer {
   border-top: 1px solid var(--slate-4);
-  padding:  2rem;
+  padding: 2rem;
 
   .footer {
     display: flex;
     flex-direction: column;
-    margin-top:1em;
+    margin-top: 1em;
 
     p {
       margin-bottom: 0 !important;

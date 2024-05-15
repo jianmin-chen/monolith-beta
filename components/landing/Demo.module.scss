@@ -1,3 +1,5 @@
+@import '../../styles/breakpoints.scss';
+
 .dashboard {
   min-width: 90vw;
   min-height: 70vh;
@@ -7,8 +9,12 @@
   font-size: 0.995rem;
   background-color: white;
   max-height: 75vh;
-  margin-left: 20rem;
   z-index: 0;
+  overflow: hidden;
+
+  @media screen and (min-width: $lg) {
+    margin-left: 20rem;
+  }
 
   > section {
     padding: 0 !important;
@@ -17,6 +23,7 @@
   button {
     background-color: transparent;
     border: none;
+    color: var(--foreground);
     font: inherit;
   }
 
@@ -32,6 +39,10 @@
       padding: 0.5rem 1rem;
       width: 100%;
       text-align: left;
+
+      @media screen and (max-width: $sm) {
+        padding-inline: 0.5rem;
+      }
     }
 
     button.selected {
@@ -54,6 +65,10 @@
   .editor {
     border-right: 1px solid var(--slate-1);
     flex: 2;
+
+    @media screen and (max-width: $md) {
+      display: none;
+    }
   }
 
   .viz {
@@ -65,9 +80,13 @@
 
     .options {
       border-bottom: 1px solid var(--slate-1);
-      padding: 0.5rem;
+      padding: 0.5rem 0;
       display: flex;
       justify-content: space-between;
+
+      @media screen and (min-width: $md) {
+        padding: 0.5rem;
+      }
 
       button {
         display: flex;
